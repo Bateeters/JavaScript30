@@ -71,18 +71,26 @@
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
     // FOR THIS EXERCISE, OPEN THE ABOVE WIKI PAGE AND GO TO DEV TOOLS.
-    // COPY ALL THE BELOW TEXT INTO THE CONSOLE.
+    // COPY AND RUN ALL THE BELOW CODE INTO THE CONSOLE.
+    // ONCE RAN, TEST THAT IT WORKS BY TYPING de TO VIEW THE ARRAY.
 
-    const category = document.querySelector('.mw-category'); // getting DOM element with list of all Boulevards
-    const links = Array.from(category.querySelectorAll('a')); // extracting the links of all the Boulevards AND making it an Array from a NodeList
+    // const category = document.querySelector('.mw-category'); // getting DOM element with list of all Boulevards
+    // const links = Array.from(category.querySelectorAll('a')); // extracting the links of all the Boulevards AND making it an Array from a NodeList
 
-    const de = links
-      .map(link => link.textContent) // mapping through each link and getting ONLY THE TEXT from each
-      .filter(boulevardName => boulevardName.includes('de'));
+    // const de = links
+    //   .map(link => link.textContent) // mapping through each link and getting ONLY THE TEXT from each
+    //   .filter(boulevardName => boulevardName.includes('de'));
 
 
     // 7. sort Exercise
-    // Sort the people alphabetically by last name
+    // Sort the people array alphabetically by last name
+    const alphabetical = people.sort((a,b) => {
+      const [aLast, aFirst] = a.split(', ');
+      const [bLast, bFirst] = b.split(', ');
+      return aLast>bLast? 1:-1;
+    });
+
+    console.table(alphabetical);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
